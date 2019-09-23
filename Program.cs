@@ -11,6 +11,8 @@ namespace LinqUsingEnumerable
             QueryStringsWithEnumerableAndLambdas();
             QueryStringsWithEnumerableAndLambdas2();
             QueryStringsWithAnonymousMethods();
+            VeryComplexQueryExpression.QueryStringsWithRawDelegates();
+
             Console.ReadLine();
         }
         static void QueryStringsWithOperators()
@@ -23,6 +25,7 @@ namespace LinqUsingEnumerable
 
             foreach (string s in subset)
                 Console.WriteLine("Item: {0}", s);
+            Console.WriteLine();
         }
         static void QueryStringsWithEnumerableAndLambdas()
         {
