@@ -5,7 +5,7 @@ namespace LinqUsingEnumerable
 {
     class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
             QueryStringsWithOperators();
             QueryStringsWithEnumerableAndLambdas();
@@ -61,11 +61,11 @@ namespace LinqUsingEnumerable
             Console.WriteLine("***** Using Anonymous Methods *****");
             string[] currentVideoGames = { "Morrowind", "Uncharted 2", "Fallout 3", "Daxter", "System Shock 2" };
 
-            // Build the necessary Func<> delegates using anonymous methods.
-            Func<string, bool> searchFilter = delegate(string game) { return game.Contains(" "); };
-            Func<string, string> itemToProcess = delegate(string s) { return s; };
+            // Build the necessary local functions.
+            bool searchFilter(string game) { return game.Contains(" "); }
+            string itemToProcess(string s) { return s; }
 
-            // Pass the delegates into the methods of Enumerable.
+            // Pass the functions into the methods of Enumerable.
             var subset = currentVideoGames.Where(searchFilter).OrderBy(itemToProcess).Select(itemToProcess);
 
             // Print out the results.
